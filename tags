@@ -1,0 +1,35 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+HANDLEERROR	bootloader/bootloader.asm	/^HANDLEERROR:$/;"	l
+HEADNUMBER	bootloader/bootloader.asm	/^HEADNUMBER: db 0x00$/;"	d
+MESSAGE1	bootloader/bootloader.asm	/^MESSAGE1: db 'OCTOPUS_OS IS COMMING..', 0$/;"	d
+MESSAGEERROR	bootloader/bootloader.asm	/^MESSAGEERROR: db 'ERROR_IS_OCCURRED', 0$/;"	d
+MESSAGELOADED	bootloader/bootloader.asm	/^MESSAGELOADED: db 'OCTOPUS_OS LOADED', 0$/;"	d
+PRINTMESSAGE	bootloader/bootloader.asm	/^PRINTMESSAGE:$/;"	l
+READDATA	bootloader/bootloader.asm	/^READDATA:$/;"	l
+READEND	bootloader/bootloader.asm	/^READEND:$/;"	l
+RESETDISK	bootloader/bootloader.asm	/^RESETDISK:$/;"	l
+SECTION	bootloader/bootloader.asm	/^SECTION .text                   ;text section(segment)$/;"	l
+SECTION	kernel32/octopusos_v.asm	/^SECTION .text$/;"	l
+SECTORCOUNT	kernel32/octopusos_v.asm	/^SECTORCOUNT: dw 0x0000$/;"	d
+SECTORNUMBER	bootloader/bootloader.asm	/^SECTORNUMBER: db 0x02 $/;"	d
+START	bootloader/bootloader.asm	/^START:$/;"	l
+START	kernel32/octopusos_v.asm	/^START:$/;"	l
+TOTALSECCOUNT	kernel32/octopusos_v.asm	/^TOTALSECCOUNT equ 1024$/;"	d
+TOTALSECTORCOUNT	bootloader/bootloader.asm	/^TOTALSECTORCOUNT: dw 1024$/;"	d
+TRACKNUMBER	bootloader/bootloader.asm	/^TRACKNUMBER: db 0x00$/;"	d
+add	bootloader/bootloader.asm	/^add sp, 6$/;"	l
+call	bootloader/bootloader.asm	/^call PRINTMESSAGE$/;"	l
+db	bootloader/bootloader.asm	/^db 0x55$/;"	l
+db	bootloader/bootloader.asm	/^db 0xAA$/;"	l
+jmp	bootloader/bootloader.asm	/^jmp $                           ;infinite loop for this line$/;"	l
+jmp	bootloader/bootloader.asm	/^jmp 0x07C0:START                ;this area should be boot code!!$/;"	l
+jmp	kernel32/octopusos_v.asm	/^jmp 0x1000:START$/;"	l
+push	bootloader/bootloader.asm	/^push 0$/;"	l
+push	bootloader/bootloader.asm	/^push 3$/;"	l
+push	bootloader/bootloader.asm	/^push MESSAGE1$/;"	l
+times	bootloader/bootloader.asm	/^times 510 - ( $ - $$ ) db 0x00  ;$ - the address for this line$/;"	l

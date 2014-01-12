@@ -28,6 +28,7 @@ dep:
 	@echo === Dependancy Search Complete ===
 
 ExecuteInternalBuild: dep
+	@echo ===ExecuteInternalBuild=====
 	make -C $(OBJECTDIRECTORY) -f ../makefile Kernel32.elf
 
 $(OBJECTDIRECTORY)/Kernel32.elf.bin: ExecuteInternalBuild
@@ -41,7 +42,7 @@ Kernel32.bin: $(OBJECTDIRECTORY)/entrypoint.bin $(OBJECTDIRECTORY)/Kernel32.elf.
 clean:
 	rm -f *.bin
 	rm -f $(OBJECTDIRECTORY)/*.*
-
+	@echo ======== Clean Complete =========
 ###############################################
 # Call for reMake...... for Temp Directory
 ###############################################
@@ -55,7 +56,7 @@ ASSEMBLYOBJECTFILES = $(notdir $(patsubst %.asm, %.o, $(ASSEMBLYSOURCEFILES)))
 %.o: $(SOURCEDIRECTORY)/%.c
 	$(GCC32) -C $<
 
-%.o: $(ASSEMBLYSOURCEFILES)/%.asm
+%.o: $(SOURCEDIRECTORY)/%.asm
 	$(NASM32) -f elf32 -o $@ $<
 
 InternalDependancy:

@@ -1,7 +1,7 @@
 # file      EntryPoint.s
-# date      2008/11/27
-# author    kkamagui 
-#           Copyright(c)2008 All rights reserved by kkamagui
+# date      2014/1/16
+# author    paganinist
+#           Copyright(c)2014 All rights reserved by paganinist
 # brief     보호 모드 커널 엔트리 포인트에 관련된 소스 파일
 
 [ORG 0x00]          ; 코드의 시작 어드레스를 0x00으로 설정
@@ -17,7 +17,22 @@ START:
                     ; 세그먼트 레지스터 값으로 변환
     mov ds, ax      ; DS 세그먼트 레지스터에 설정
     mov es, ax      ; ES 세그먼트 레지스터에 설정
+
     
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    ; A20 게이트 활성화를 검사함.
+    ; BIOS 를 통한 전환이 실패했을 때 시스템컨트롤 포트로 전환 시도
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    mov ax, 0x2401 
+    int 0x15
+
+    jc .A20GATEFAILED
+    jmp .A20GATESUCCESS
+.A20GATEFAILED:
+    ; 시스템 컨트롤 포트 0x92번 접근.
+    mov al, 2
+    out 0x92, al
+.A20GATESUCCESS:
     cli             ; 인터럽트가 발생하지 못하도록 설정
     lgdt [ GDTR ]   ; GDTR 자료구조를 프로세서에 설정하여 GDT 테이블을 로드
 

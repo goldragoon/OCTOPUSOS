@@ -37,7 +37,7 @@ Disk.img: 00.BootLoader/BootLoader.bin 01.Kernel32/Kernel32.bin
 	@echo =========== Disk Image Build Start ===========
 	@echo 
 
-	./ImageMaker.exe $^
+	./ImageMaker.out $^
 
 	@echo 
 	@echo ============= All Build Complete =============

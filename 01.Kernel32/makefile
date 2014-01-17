@@ -1,6 +1,6 @@
 # file		makefile
-# date		2008/12/14
-# author	kkamagui 
+# date		2014/1/14
+# author	paganinist 
 # brief		보호 모드 커널을 빌드하기 위한 make 파일
 
 ################################################################################
@@ -8,11 +8,12 @@
 ################################################################################
 # 컴파일러 및 링커 정의
 NASM32 = nasm
-GCC32 = x86_64-pc-linux-gcc.exe -c -m32 -ffreestanding
-LD32 = x86_64-pc-linux-ld.exe -melf_i386 -T ../elf_i386.x -nostdlib -e Main -Ttext 0x10200
+GCCDIRECTORY=/usr/cross/bin/
+GCC32 = $(GCCDIRECTORY)x86_64-pc-linux-gcc -c -m32 -ffreestanding
+LD32 = $(GCCDIRECTORY)x86_64-pc-linux-ld -melf_i386 -T ../elf_i386.x -nostdlib -e Main -Ttext 0x10200
 
 # 바이너리 이미지 생성을 위한 OBJCOPY 옵션 정의
-OBJCOPY32 = x86_64-pc-linux-objcopy -j .text -j .data -j .rodata -j .bss -S -O binary
+OBJCOPY32 = $(GCCDIRECTORY)x86_64-pc-linux-objcopy -j .text -j .data -j .rodata -j .bss -S -O binary
 
 # 디렉터리 정의
 OBJECTDIRECTORY = Temp

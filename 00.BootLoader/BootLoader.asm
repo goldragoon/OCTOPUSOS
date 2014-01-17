@@ -1,8 +1,8 @@
 # file      BootLoader.asm
-# date      2008/11/27
-# author    kkamagui 
-#           Copyright(c)2008 All rights reserved by kkamagui
-# brief     MINT64 OS의 부트 로더 소스 파일
+# date      2014/1/16
+# author    paganinist
+#           Copyright(c)2014 All rights reserved by paganinist
+# brief     octopus OS의 부트 로더 소스 파일
 
 
 [ORG 0x00]          ; 코드의 시작 어드레스를 0x00으로 설정
@@ -27,6 +27,7 @@ START:
     mov ax, 0xB800  ; 비디오 메모리의 시작 어드레스(0x7C00)를 세그먼트 레지스터 값으로 변환
     mov es, ax      ; ES 세그먼트 레지스터에 설정
 
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     ; 스택을 0x0000:0000~0x0000:FFFF 영역에 64KB 크기로 생성
     mov ax, 0x0000  ; 스택 세그먼트의 시작 어드레스(0x0000)를 세그먼트 레지스터 값으로 변환
     mov ss, ax      ; SS 세그먼트 레지스터에 설정

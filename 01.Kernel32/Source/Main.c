@@ -7,7 +7,7 @@
  */
 
 #include "Types.h"
-
+#include "Page.h"
 BOOL kIsMemoryAvailable(void);
 void kPrintString( int iX, int iY, const char* pcString );
 BOOL kInitialize64Area(void);
